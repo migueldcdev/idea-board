@@ -1,12 +1,18 @@
 
+import Header from './components/Header';
+import Box from './components/Box'; 
+import Button from './components/Button';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-     Idea Board
+      <Header />
+      <Box />
+      <Button />
     </div>
   );
 }
 
-export default App;
+export default App

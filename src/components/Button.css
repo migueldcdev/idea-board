@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;     
+}
+
+.button {
+    font-size: 50px;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 25px;        
+    cursor: pointer;       
+}
