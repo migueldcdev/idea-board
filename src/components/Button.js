@@ -1,18 +1,55 @@
+import { useContext } from "react"
+
+import { ideasContext } from "../context/ideasContext"
+
 import { FaPlusCircle} from "react-icons/fa"
+
 
 import './Button.css'
  
 const Button = () => {
+    
+    const {ideas, setIdeas} = useContext(ideasContext)    
 
-    function handleClick() {
-        console.log("Clicked")
+    function createNewTile() {
+       const parsedIdeas = JSON.parse(ideas)
+       
+       if(parsedIdeas.length == undefined) {  
+             
+        const ideas = [
+            {
+                id: 1,
+                title: '',
+                description: '',
+                creationDate: Date.now(),
+                updateDate: false
+            }
+        ]
+
+        setIdeas(JSON.stringify(ideas))
+
+       } else {
+
+        parsedIdeas.push(
+            {
+                id: parsedIdeas.length + 1,
+                title: '',
+                description: '',
+                creationDate: Date.now(),
+                updateDate: false
+            }
+        )
+                
+        setIdeas(JSON.stringify(parsedIdeas))
+       }       
+        
     }
 
     return(       
         <div className="container">            
             <FaPlusCircle 
                 className="button" 
-                onClick={() => handleClick()}
+                onClick={() => createNewTile()}
             />            
         </div>        
     )
