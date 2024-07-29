@@ -10,9 +10,17 @@ const Tile = ({props}) => {
                 {props.creationDate}
             </div>
             <div>
-                <input type='text'  className='title' placeholder='Title' />
+                <input 
+                    type='text'  
+                    className='title' 
+                    placeholder='Title' 
+                />
             </div>
-            <textarea className='description' rows={4} cols={26}>
+            <textarea 
+                className='description' 
+                rows={4} 
+                cols={26}
+            >
             </textarea>            
         </div>
     )

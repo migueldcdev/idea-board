@@ -28,8 +28,9 @@ const Box = () => {
                 /> 
                ))
             :
-            <p className='no-ideas'>You haven't added any ideas yet.</p>
-            
+            <p className='no-ideas'>
+                You haven't added any ideas yet.
+            </p>            
             }       
         </div>
     )
