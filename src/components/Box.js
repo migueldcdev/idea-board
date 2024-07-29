@@ -1,9 +1,11 @@
+import Tile from './Tile'
+
 import './Box.css'
 
 const Box = () => {
     return(
-        <div>
-            box
+        <div className='box hide-scrollbar '>
+            <Tile />                                      
         </div>
     )
 }

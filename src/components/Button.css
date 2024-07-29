@@ -1,12 +1,16 @@
 .container {
     display: flex;
-    justify-content: center;     
+    justify-content: center;   
 }
 
 .button {
     font-size: 50px;
+    color: #30E3CA;
     position: fixed;
     bottom: 0;
-    padding-bottom: 25px;        
-    cursor: pointer;       
+    padding-bottom: 15px; 
+    padding-top: 15px;       
+    cursor: pointer;    
+    background-color: #E4F9F5;
+    width: 100%;       
 }

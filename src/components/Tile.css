@@ -1,0 +1,31 @@
+.tile {    
+    padding: 10px;
+    background-color: #11999E;
+    margin-top: 20px;
+    margin-bottom: 30px;    
+    width: 100%;     
+    border-radius: 5px;
+    
+}
+
+.date {
+    text-align: end;    
+    font-size: 12px;
+    color: #40514E;
+}
+
+.title {
+    margin-top: 10px;
+    font-size: 15px;
+    border: 1px solid #40514E;
+    border-radius: 5px;    
+    
+}
+
+.description {
+    resize: none;
+    margin-top: 5px;
+    border: 1px solid #40514E;
+    border-radius: 5px;    
+}
+
