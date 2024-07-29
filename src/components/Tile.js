@@ -1,14 +1,16 @@
+import { useContext } from 'react'
+
 import './Tile.css'
 
-const Tile = () => {
+const Tile = ({props}) => {    
 
     return(
         <div className='tile'>
             <div className='date'>
-                00/00/00
+                {props.creationDate}
             </div>
             <div>
-                <input type='text'  className='title' placeholder='Title'/>
+                <input type='text'  className='title' placeholder='Title' />
             </div>
             <textarea className='description' rows={4} cols={26}>
             </textarea>            
