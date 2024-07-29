@@ -16,10 +16,14 @@
     scrollbar-width: none;
 }
 
+
+.no-ideas{
+    color: #40514E;
+    margin-top: 50px;
+}
+
 @media (min-width: 680px) {
     .box {
-        max-height: 80vh;
-       
+        max-height: 80vh;       
     }
-
 }
