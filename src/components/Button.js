@@ -21,8 +21,8 @@ const Button = () => {
                 id: 1,
                 title: '',
                 description: '',
-                creationDate: Date.now(),
-                updateDate: false
+                date: Date.now(),
+                updated: false
             }
         ]
 
@@ -35,8 +35,8 @@ const Button = () => {
                 id: parsedIdeas.length + 1,
                 title: '',
                 description: '',
-                creationDate: Date.now(),
-                updateDate: false
+                date: Date.now(),
+                updated: false
             }
         )
                 
