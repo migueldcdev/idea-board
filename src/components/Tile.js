@@ -94,7 +94,7 @@ const Tile = ({ props }) => {
                 >
                 </textarea>
             </div>
-            {inputHasChanged ?
+            {inputHasChanged &&
                 <div className='flex-end-container'>
                     <button
                         className='update-button'
@@ -102,9 +102,7 @@ const Tile = ({ props }) => {
                     >
                         Update
                     </button>
-                </div>
-                :
-                <div></div>
+                </div>                
             }
         </div>
     )
