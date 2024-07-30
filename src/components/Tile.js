@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import { ideasContext } from "../context/ideasContext"
 
@@ -12,8 +12,11 @@ const Tile = ({ props }) => {
 
     const [inputHasChanged, setInputHasChanged] = useState(false)
 
-    function deleteIdea() {
+    const [title, setTitle] = useState(props.title)
+    const [description, setDescription] = useState(props.description)
         
+    function deleteIdea() {
+
         const parsedIdeas = JSON.parse(ideas)
 
         const id = props.id
@@ -25,45 +28,80 @@ const Tile = ({ props }) => {
         setIdeas(JSON.stringify(parsedIdeas))
     }
 
+    function handleChangeTitle(value) {
+        setInputHasChanged(true)
+        setTitle(value)
+    }
+
+    function handleChangeDescription(value) {
+        setInputHasChanged(true)
+        setDescription(value)
+    }
+
     function updateIdea() {
-        console.log("Updating")
+
+        const parsedIdeas = JSON.parse(ideas)
+
+        const id = props.id
+
+        const index = parsedIdeas.findIndex(item => item.id == id)
+
+        parsedIdeas[index].title = title
+
+        parsedIdeas[index].description = description
+
+        parsedIdeas[index].updated = true
+
+        setIdeas(JSON.stringify(parsedIdeas))
+        
+        setInputHasChanged(false)
     }
 
     return (
         <div className='tile'>
             <div className='flex-between-container'>
+                
+                <div className='date'>
+                    {props.updated ? "Updated "  : "Created "}
+                    {unixToDate(props.date)}
+                </div>
                 <div >
-                    <button 
+                    <button
                         className='delete-button'
-                        onClick={() => deleteIdea()} 
+                        onClick={() => deleteIdea()}
                     >
                         x
                     </button>
                 </div>
-                <div className='date'>
-                    {props.updated ? "Updated " : "Created " + unixToDate(props.date)}
-                </div>
             </div>
             <div className='center-items'>
-                <div>
-                    <input
-                        type='text'
-                        className='title'
-                        placeholder='Title'
-                        autoFocus
-                        onChange={() => setInputHasChanged(true)}
-                    />
-                </div>
+
+                <input
+                    type='text'
+                    className='title'
+                    placeholder='Title'
+                    autoFocus
+                    onChange={(e) => handleChangeTitle(e.target.value)}
+                    value={title}
+                />
+
                 <textarea
                     className='description'
                     rows={4}
                     cols={26}
+                    onChange={(e) => handleChangeDescription(e.target.value)}
+                    value={description}
                 >
                 </textarea>
             </div>
-            {inputHasChanged ? 
+            {inputHasChanged ?
                 <div className='flex-end-container'>
-                    <button className='update-button'>Update</button>
+                    <button
+                        className='update-button'
+                        onClick={() => updateIdea()}
+                    >
+                        Update
+                    </button>
                 </div>
                 :
                 <div></div>
