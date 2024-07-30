@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 import { ideasContext } from "../context/ideasContext"
 
@@ -9,6 +9,8 @@ import './Tile.css'
 const Tile = ({ props }) => {
 
     const { ideas, setIdeas } = useContext(ideasContext)
+
+    const [inputHasChanged, setInputHasChanged] = useState(false)
 
     function deleteIdea() {
         
@@ -23,11 +25,20 @@ const Tile = ({ props }) => {
         setIdeas(JSON.stringify(parsedIdeas))
     }
 
+    function updateIdea() {
+        console.log("Updating")
+    }
+
     return (
         <div className='tile'>
-            <div>
-                <div className='delete-button'>
-                    <button onClick={() => deleteIdea()} >x</button>
+            <div className='flex-between-container'>
+                <div >
+                    <button 
+                        className='delete-button'
+                        onClick={() => deleteIdea()} 
+                    >
+                        x
+                    </button>
                 </div>
                 <div className='date'>
                     {props.updated ? "Updated " : "Created " + unixToDate(props.date)}
@@ -40,6 +51,7 @@ const Tile = ({ props }) => {
                         className='title'
                         placeholder='Title'
                         autoFocus
+                        onChange={() => setInputHasChanged(true)}
                     />
                 </div>
                 <textarea
@@ -49,6 +61,13 @@ const Tile = ({ props }) => {
                 >
                 </textarea>
             </div>
+            {inputHasChanged ? 
+                <div className='flex-end-container'>
+                    <button className='update-button'>Update</button>
+                </div>
+                :
+                <div></div>
+            }
         </div>
     )
 }
