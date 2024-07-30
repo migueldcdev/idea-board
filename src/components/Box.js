@@ -21,9 +21,9 @@ const Box = () => {
 
             {parsedIdeas.length > 0 ?
                 <div className='box hide-scrollbar '>
-                    {parsedIdeas.map((element, index) => (
+                    {parsedIdeas.map((element) => (
                         <Tile
-                            key={index}
+                            key={element.id}
                             props={element}
                         />
                     ))}
