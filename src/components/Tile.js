@@ -1,27 +1,32 @@
 import { useContext } from 'react'
 
+import unixToDate from '../utils/time'
+
 import './Tile.css'
 
-const Tile = ({props}) => {    
+const Tile = ({ props }) => {
 
-    return(
+    return (
         <div className='tile'>
             <div className='date'>
-                {props.creationDate}
+                {props.updated ? "Updated " : "Created " + unixToDate(props.date)}
             </div>
-            <div>
-                <input 
-                    type='text'  
-                    className='title' 
-                    placeholder='Title' 
-                />
+            <div className='center-items'>
+                <div>
+                    <input
+                        type='text'
+                        className='title'
+                        placeholder='Title'
+                        autoFocus                        
+                    />
+                </div>
+                <textarea
+                    className='description'
+                    rows={4}
+                    cols={26}
+                >
+                </textarea>
             </div>
-            <textarea 
-                className='description' 
-                rows={4} 
-                cols={26}
-            >
-            </textarea>            
         </div>
     )
 }
