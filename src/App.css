@@ -1,0 +1,10 @@
+.flex-end-container {
+    display: flex;
+    justify-content: end;
+}
+
+.flex-start-container {
+    display: flex;
+    justify-content: start;
+}
+

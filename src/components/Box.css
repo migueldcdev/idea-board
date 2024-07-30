@@ -23,6 +23,24 @@
     text-align: center;    
 }
 
+.select-order {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+label {
+    color: #40514E;
+} 
+
+select {
+    background-color: #30E3CA;
+    border: 0px solid;
+    border-radius: 5px;
+    padding: 2px;
+    color: white;
+    font-size: 15px;
+}
+
 @media (min-width: 680px) {
     .box {
         max-height: 80vh;

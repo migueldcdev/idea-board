@@ -12,15 +12,27 @@ const Box = () => {
 
     const [parsedIdeas, setParsedIdeas] = useState([])
 
+    
+
     useEffect(() => {
         if (ideas) setParsedIdeas(JSON.parse(ideas))
     }, [ideas])
 
     return (
-        <div>
-
+        <div>            
             {parsedIdeas.length > 0 ?
+            <div>
+                <div className='flex-start-container'>
+                    <div className='select-order'>
+                        <label>Sort by: </label>
+                        <select>
+                            <option selected>Date</option>
+                            <option>A-Z </option>
+                        </select>
+                    </div>
+                </div>
                 <div className='box hide-scrollbar '>
+                    
                     {parsedIdeas.map((element) => (
                         <Tile
                             key={element.id}
@@ -28,6 +40,7 @@ const Box = () => {
                         />
                     ))}
                 </div>
+            </div>
                 :
                 <div>
                     <p className='no-ideas'>
@@ -40,7 +53,3 @@ const Box = () => {
 }
 
 export default Box
-/*
-
-
-*/
