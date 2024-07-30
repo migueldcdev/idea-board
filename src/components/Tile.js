@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 
 import { ideasContext } from "../context/ideasContext"
 
@@ -21,7 +21,7 @@ const Tile = ({ props }) => {
 
         const id = props.id
 
-        const index = parsedIdeas.findIndex(item => item.id == id)
+        const index = parsedIdeas.findIndex(item => item.id === id)
 
         if (index !== -1) parsedIdeas.splice(index, 1)
 
@@ -44,7 +44,7 @@ const Tile = ({ props }) => {
 
         const id = props.id
 
-        const index = parsedIdeas.findIndex(item => item.id == id)
+        const index = parsedIdeas.findIndex(item => item.id === id)
 
         parsedIdeas[index].title = title
 

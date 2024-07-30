@@ -15,7 +15,7 @@ const Button = () => {
     function createNewTile() {
        const parsedIdeas = JSON.parse(ideas)
        
-       if(parsedIdeas.length == undefined) {  
+       if(parsedIdeas.length === undefined) {  
              
         const ideas = [
             {
