@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { v4 as uuidv4 } from 'uuid'
 
 import { ideasContext } from "../context/ideasContext"
 
@@ -18,7 +19,7 @@ const Button = () => {
              
         const ideas = [
             {
-                id: 1,
+                id: uuidv4(),
                 title: '',
                 description: '',
                 date: Date.now(),
@@ -32,7 +33,7 @@ const Button = () => {
 
         parsedIdeas.push(
             {
-                id: parsedIdeas.length + 1,
+                id: uuidv4(),
                 title: '',
                 description: '',
                 date: Date.now(),
