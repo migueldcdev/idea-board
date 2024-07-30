@@ -20,6 +20,7 @@
 .no-ideas{
     color: #40514E;
     margin-top: 50px;
+    text-align: center;    
 }
 
 @media (min-width: 680px) {
