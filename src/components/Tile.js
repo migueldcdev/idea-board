@@ -125,11 +125,13 @@ const Tile = ({ props }) => {
                     value={description}
                 >
                 </textarea>
+
                 {descriptionCharCount >= 110 &&
                     <div className='char-count'>
                         {descriptionCharCount}/140
                     </div>
                 }
+                
             </div>
             {inputHasChanged &&
                 <div className='flex-end-container'>
