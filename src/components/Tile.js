@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import Confetti from 'react-confetti'
 
 import { ideasContext } from "../context/ideasContext"
 
@@ -16,6 +17,8 @@ const Tile = ({ props }) => {
     const [description, setDescription] = useState(props.description)
 
     const [descriptionCharCount, setDescriptionCharCount] = useState(description.length)
+
+    const [confetti, setConfetti] = useState(false)
         
     function deleteIdea() {
 
@@ -60,12 +63,33 @@ const Tile = ({ props }) => {
         parsedIdeas[index].updated = true
 
         setIdeas(JSON.stringify(parsedIdeas))
+
+        throwConfetti()
         
         setInputHasChanged(false)
+
+        
+    }
+
+    function throwConfetti() {
+        setConfetti(true)
+        setTimeout(() => {
+            setConfetti(false)
+        }, 5000)
+
     }
 
     return (
         <div className='tile'>
+            {confetti &&
+               <Confetti 
+                    numberOfPieces={200} 
+                    gravity={0.1} 
+                    recycle={false}
+                >                    
+                </Confetti>
+            }
+            
             <div className='flex-between-container'>
                 
                 <div className='date'>

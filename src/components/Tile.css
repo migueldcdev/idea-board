@@ -76,6 +76,10 @@
     font-size: 13px;       
 }
 
+.confetti {
+    color: transparent;
+}
+
 @media (min-width: 680px) {
     .tile {
         width: 100%;
