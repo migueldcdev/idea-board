@@ -83,8 +83,8 @@ const Tile = ({ props }) => {
         <div className='tile'>
             {confetti &&
                <Confetti 
-                    numberOfPieces={200} 
-                    gravity={0.1} 
+                    numberOfPieces={100} 
+                    gravity={0.2} 
                     recycle={false}
                 >                    
                 </Confetti>

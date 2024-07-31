@@ -13,61 +13,60 @@ const Box = () => {
 
     const [parsedIdeas, setParsedIdeas] = useState([])
 
-    // const [sortByDate, setSortByDate] = useState(true)
-    // const [sortedIdeas, setSortedIdeas] = useState([])
+    const [sortByDate, setSortByDate] = useState(true)
+
 
     useEffect(() => {
         if (ideas) setParsedIdeas(JSON.parse(ideas))
+
     }, [ideas])
 
-    // useEffect(() => {
 
-    //     if (ideas && sortByDate) setSortedIdeas(sortIdeasByDate(parsedIdeas))
 
-    //     if (ideas && !sortByDate) setSortedIdeas(sortIdeasByTitle(parsedIdeas))
+    function sortIdeasByDate(ideas) {
+        const sortedIdeas = ideas.sort((x, y) => y.date - x.date)
 
-    // }, [parsedIdeas])
+        return sortedIdeas
+    }
 
-    // function sortIdeasByDate(ideas) {
+    function sortIdeasByTitle(ideas) {
+        const sortedIdeas = ideas.sort((x, y) => x.title.localeCompare(y.title))
 
-    //     const sortedIdeas = ideas.sort((x, y) => y.date - x.date);
-    //     return sortedIdeas
-    // }
-
-    // function sortIdeasByTitle(ideas) {
-    //     console.log("hii")
-    //     const sortedIdeas = ideas.sort((x, y) => x.title.localCompare(y.title))
-    //     return sortedIdeas
-    // }
+        return sortedIdeas
+    }
 
     return (
         <div>
             {parsedIdeas.length > 0 ?
-            <div>
-                <div className='flex-start-container'>
-                    {/* <div className='select-order'>
-                        <label>Sort by: </label>
-                        <select>
-                            <option                               
-                                onSelect={() => setSortByDate(true)}
-                            >
-                                Date
-                            </option>
+                <div>
+                    <div className='flex-start-container'>
+                        <div className='select-order'>
+                            <label>Sort by: </label>
+                            <select onChange={() => setSortByDate(!sortByDate)}>
+                                <option>Date</option>
+                                <option>A-Z </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className='box hide-scrollbar '>
+                        {sortByDate ?
+                            sortIdeasByDate(parsedIdeas).map((element) => (
+                                <Tile
+                                    key={element.id}
+                                    props={element}
+                                />
+                            ))
+                            :
+                            sortIdeasByTitle(parsedIdeas).map((element) => (
+                                <Tile
+                                    key={element.id}
+                                    props={element}
+                                />
+                            ))
+                        }
 
-                            <option onSelect={() => {setSortByDate(false)}}>A-Z </option>
-                        </select>
-                    </div> */}
+                    </div>
                 </div>
-                <div className='box hide-scrollbar '>
-
-                    {parsedIdeas.map((element) => (
-                        <Tile
-                            key={element.id}
-                            props={element}
-                        />
-                    ))}
-                </div>
-            </div>
                 :
                 <div>
                     <p className='no-ideas'>
@@ -75,6 +74,7 @@ const Box = () => {
                     </p>
                 </div>
             }
+
         </div>
     )
 }
