@@ -1,7 +1,7 @@
 .box {
     padding: 5px;
-    padding-bottom: 10px;    
-    max-height: 65vh;
+    padding-bottom: 50px;    
+    max-height: 60vh;
     overflow-y: scroll;
     display: grid;  
     justify-content: center;   
@@ -43,7 +43,7 @@ select {
 
 @media (min-width: 680px) {
     .box {
-        max-height: 80vh;
+        max-height: 75vh;
         display: grid; 
         grid-template-columns: auto auto;  
         column-gap: 100px;            
