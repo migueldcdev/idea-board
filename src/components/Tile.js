@@ -14,6 +14,8 @@ const Tile = ({ props }) => {
 
     const [title, setTitle] = useState(props.title)
     const [description, setDescription] = useState(props.description)
+
+    const [descriptionCharCount, setDescriptionCharCount] = useState(description.length)
         
     function deleteIdea() {
 
@@ -34,8 +36,13 @@ const Tile = ({ props }) => {
     }
 
     function handleChangeDescription(value) {
-        setInputHasChanged(true)
-        setDescription(value)
+        
+        if (value.length <= 140) { //need to enforce max length cause does not work on mobile
+            setInputHasChanged(true)
+            setDescriptionCharCount(value.length)
+            setDescription(value)
+        }
+       
     }
 
     function updateIdea() {
@@ -80,7 +87,7 @@ const Tile = ({ props }) => {
                     type='text'
                     className='title'
                     placeholder='Title'
-                    autoFocus
+                    autoFocus                    
                     onChange={(e) => handleChangeTitle(e.target.value)}
                     value={title}
                 />
@@ -89,10 +96,16 @@ const Tile = ({ props }) => {
                     className='description'
                     rows={4}
                     cols={26}
+                    maxLength={140}
                     onChange={(e) => handleChangeDescription(e.target.value)}
                     value={description}
                 >
                 </textarea>
+                {descriptionCharCount >= 110 &&
+                    <div className='char-count'>
+                        {descriptionCharCount}/140
+                    </div>
+                }
             </div>
             {inputHasChanged &&
                 <div className='flex-end-container'>
@@ -102,7 +115,8 @@ const Tile = ({ props }) => {
                     >
                         Update
                     </button>
-                </div>                
+                </div>    
+              
             }
         </div>
     )

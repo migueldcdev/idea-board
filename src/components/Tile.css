@@ -66,9 +66,14 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 14px;    
     margin-top: 10px;
     margin-bottom: 5px;
+}
+
+.char-count {
+    color: #40514E;
+    font-size: 13px;       
 }
 
 @media (min-width: 680px) {
