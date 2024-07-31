@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/idea-board/static/css/main.001d178b.css",
+    "main.js": "/idea-board/static/js/main.37d38211.js",
+    "static/js/453.b814b3f8.chunk.js": "/idea-board/static/js/453.b814b3f8.chunk.js",
+    "index.html": "/idea-board/index.html",
+    "main.001d178b.css.map": "/idea-board/static/css/main.001d178b.css.map",
+    "main.37d38211.js.map": "/idea-board/static/js/main.37d38211.js.map",
+    "453.b814b3f8.chunk.js.map": "/idea-board/static/js/453.b814b3f8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.001d178b.css",
+    "static/js/main.37d38211.js"
+  ]
+}
