@@ -3,8 +3,8 @@ import { createContext, useState, useEffect, Children } from "react";
 export const ideasContext = createContext();
 
 const IdeasContext = ({children}) => {
-
-    const [ideas, setIdeas] = useState(() => { return localStorage.getItem('ideas') || "{}"})
+    // parse ideas only here
+    const [ideas, setIdeas] = useState(() => { return localStorage.getItem('ideas') || "{}"}) //this should be an array
 
     useEffect(() => {
         localStorage.setItem('ideas', ideas)

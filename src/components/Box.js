@@ -8,7 +8,7 @@ import './Box.css'
 
 
 const Box = () => {
-
+    // use an enum and function to sort ideas
     const { ideas } = useContext(ideasContext)
 
     const [parsedIdeas, setParsedIdeas] = useState([])

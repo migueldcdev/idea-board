@@ -11,7 +11,7 @@ import './Button.css'
 const Button = () => {
     
     const {ideas, setIdeas} = useContext(ideasContext)    
-
+    //REMOVE DUPLICATION
     function createNewTile() {
        const parsedIdeas = JSON.parse(ideas)
        

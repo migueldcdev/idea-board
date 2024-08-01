@@ -25,7 +25,7 @@ const Tile = ({ props }) => {
         const parsedIdeas = JSON.parse(ideas)
 
         const id = props.id
-
+        //substitute with filter
         const index = parsedIdeas.findIndex(item => item.id === id)
 
         if (index !== -1) parsedIdeas.splice(index, 1)
@@ -33,6 +33,7 @@ const Tile = ({ props }) => {
         setIdeas(JSON.stringify(parsedIdeas))
     }
 
+    //substitute = title === props.title
     function handleChangeTitle(value) {
         setInputHasChanged(true)
         setTitle(value)
