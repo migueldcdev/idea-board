@@ -60,6 +60,8 @@ const Tile = ({ props }) => {
 
         parsedIdeas[index].description = description
 
+        parsedIdeas[index].date = Date.now()
+
         parsedIdeas[index].updated = true
 
         setIdeas(JSON.stringify(parsedIdeas))
